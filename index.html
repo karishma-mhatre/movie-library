@@ -8,11 +8,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-  <script id="header" type="text/x-handlebars-template">
-    <h1>Hello</h1>
+  
+  <div>Header</div>
+  <div id="movies" class="hidden"></div>
+  <div id="search" class="hidden">search</div>
+  
+  <script id="search" type="text/x-handlebars-template">
+    <div class="movies-container">
+      search
+    </div>
   </script>
   <div id="root">
-
   </div>
 </body>
+<script src="router.js" ></script>
 </html>

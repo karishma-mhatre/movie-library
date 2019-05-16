@@ -20,7 +20,8 @@ module.exports = {
             presets: ['@babel/preset-env']
           }
         }
-      }
+      },
+      { test: /\.handlebars$/, loader: "handlebars-loader" }
     ]
   },
   resolve: {
