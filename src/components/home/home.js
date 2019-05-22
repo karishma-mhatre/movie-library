@@ -1,20 +1,19 @@
 import { MovieService } from '../../services/movie-list-service';
-import { Movie } from '../../models/movie';
 
-export default function HomeController() {
-    let movieService = new MovieService();
-    let movies = movieService.getTopRatedMovies();
+export default async function HomeController() {
+    let movieService  = new MovieService(MovieService);
     let homeList = document.getElementById('movies');
     
+    let movies = await movieService.getTopRatedMovies();
+
     movies.forEach((movie) => {
         let movieNode = document.createElement("div");
         let titleText = document.createTextNode(movie.title);
         movieNode.appendChild(titleText);
         homeList.appendChild(movieNode);
-    })
-    homeList.classList.remove("hidden");
-
+    });
     let container = document.createElement("div");
     container.appendChild(homeList);
-    return container.innerHTML;
+    homeList.classList.remove("hidden");
+    return Promise.resolve(container.innerHTML);
 }

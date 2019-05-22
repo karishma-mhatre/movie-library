@@ -11,3 +11,9 @@ export class Movie {
     }
 
 }
+
+export class MovieFactory {
+    fromResponse(id, title, date, posterLink) {
+        return new Movie(id, title, date, posterLink);
+    }
+}
